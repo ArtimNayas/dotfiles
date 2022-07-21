@@ -1,0 +1,103 @@
+format = """
+$username\
+$hostname\
+$shlvl\
+$kubernetes\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$hg_branch\
+$docker_context\
+$package\
+$cmake\
+$dart\
+$dotnet\
+$elixir\
+$elm\
+$erlang\
+$golang\
+$helm\
+$java\
+$julia\
+$kotlin\
+$nim\
+$nodejs\
+$ocaml\
+$perl\
+$php\
+$purescript\
+$python\
+$ruby\
+$rust\
+$swift\
+$terraform\
+$vagrant\
+$zig\
+$nix_shell\
+$conda\
+$memory_usage\
+$aws\
+$gcloud\
+$openstack\
+$env_var\
+$crystal\
+$custom\
+$cmd_duration\
+$line_break\
+$lua\
+$jobs\
+$character"""
+
+[username]
+style_user = "blue"
+show_always = true
+
+[aws]
+format = '\[AWS: [$profile/($region)]($style)\]'
+symbol = ''
+style = 'bold white'
+
+[character]
+success_symbol = " [λ](grey)"
+error_symbol = " [λ](bold red)"
+
+[cmd_duration]
+min_time = 1000
+
+[directory]
+truncation_length = 100
+truncate_to_repo = false
+style = " yellow"
+format = "[$path]($style)[$read_only]($read_only_style) "
+
+[git_branch]
+symbol = ""
+style = "bold white"
+format = '[\($symbol$branch\)]($style) '
+
+[git_status]
+# I don't care about untracked files or that there's a stash present.
+untracked = ""
+format = '([\[$conflicted$deleted$renamed$modified$staged$behind\]]($style) )'
+modified = '*'
+
+[python]
+format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\))]($style)'
+
+[status]
+disabled = false
+format = '[\[$status - $common_meaning\]](green)'
+
+[env_var]
+variable = "0"
+
+[battery]
+disabled = true
+
+# Until these get resolved, doing my own datetime with date:
+# https://github.com/starship/starship/discussions/2360#discussioncomment-391911
+# https://github.com/chronotope/chrono/issues/288
+[time]
+disabled = true
